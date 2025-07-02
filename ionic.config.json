@@ -1,0 +1,7 @@
+{
+  "name": "Pulsense",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
