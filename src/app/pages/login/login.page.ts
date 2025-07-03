@@ -25,7 +25,7 @@ export class LoginPage {
 
   async login() {
     this.http
-      .post<any>('https://pulsense.onrender.com', {
+      .post<any>('http://localhost:3000/login', {
         username: this.username,
         password: this.password,
       })
