@@ -1,0 +1,19 @@
+<ion-content  class="ion-no-padding" style=" --background: #D9D9D9;">
+  <div class="centro-login">
+    <form (ngSubmit)="login()" class="form-login">
+      <ion-item style=" color:black; --background: white;">
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input [(ngModel)]="username" name="username" required></ion-input>
+      </ion-item>
+
+     <ion-item style=" color:black; --background: white;">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="ion-margin-top">
+        Iniciar Sesión
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
