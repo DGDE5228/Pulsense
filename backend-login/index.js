@@ -34,13 +34,9 @@ app.post('/login', async (req, res) => {
   }
 });
 app.use((req, res, next) => {
-  if (req.url.startsWith('http')) {
-    console.error(`❌ Ruta inválida: ${req.url}`);
-    return res.status(400).send('Ruta inválida');
-  }
+  console.log(`🔍 Ruta recibida: ${req.method} ${req.url}`);
   next();
 });
-
 
 // Servir archivos estáticos del frontend Ionic (carpeta www)
 app.use(express.static(path.join(__dirname, 'www')));
