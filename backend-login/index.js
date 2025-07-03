@@ -33,6 +33,10 @@ app.post('/login', async (req, res) => {
     res.status(401).json({ success: false, message: 'Credenciales incorrectas' });
   }
 });
+app.use((req, res, next) => {
+  console.log(`🔍 Ruta recibida: ${req.method} ${req.url}`);
+  next();
+});
 
 // Servir archivos estáticos del frontend Ionic (carpeta www)
 app.use(express.static(path.join(__dirname, 'www')));
