@@ -1,20 +1,39 @@
-
+// Centra el formulario tanto en web como en móvil
 .centro-login {
   display: flex;
-  justify-content: center;  // Horizontal
-  align-items: center;      // Vertical
+  justify-content: center;
+  align-items: center;
   height: 100%;
+  padding: 16px;
 }
 
 .form-login {
   width: 100%;
   max-width: 400px;
-  padding: 20px;
+  padding: 24px;
   background-color: #1797A6;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
-.password{
-  background-color: white;
+
+// Estilo para los inputs
+.input-item {
+  --background: white;
+  --color: black;
+  --border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+ion-input::part(native) {
   color: black;
+  padding: 12px 8px;
+}
+
+// Botón de inicio de sesión
+.login-button {
+  --background: #3B82F6; /* Azul moderno */
+  --color: white;
+  --border-radius: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
