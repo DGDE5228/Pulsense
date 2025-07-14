@@ -33,16 +33,45 @@ export class LoginPage {
         next: (res) => {
           this.router.navigate(['/dashboard']);
         },
-       error: async (err) => {
-  console.error('Error login:', err); // 👈 importante
-  const alert = await this.alertCtrl.create({
-    header: 'Error',
-    message: err.error?.message || 'Error desconocido',
-    buttons: ['OK'],
-  });
-  await alert.present();
-},
-
+        error: async (err) => {
+          console.error('Error login:', err); // 👈 importante
+          const alert = await this.alertCtrl.create({
+            header: 'Error',
+            message: err.error?.message || 'Error desconocido',
+            buttons: ['OK'],
+          });
+          await alert.present();
+        },
       });
   }
+  async register() {
+  this.http
+    .post<any>('https://pulsense.onrender.com/register', {
+      username: this.username,
+      password: this.password,
+    })
+    .subscribe({
+      next: async (res) => {
+        const alert = await this.alertCtrl.create({
+          header: 'Éxito',
+          message: 'Cuenta creada correctamente',
+          buttons: ['OK'],
+        });
+        await alert.present();
+        this.router.navigate(['/dashboard']); // O redirige al login si prefieres
+      },
+      error: async (err) => {
+        const alert = await this.alertCtrl.create({
+          header: 'Error',
+          message: err.error?.message || 'Error al crear la cuenta',
+          buttons: ['OK'],
+        });
+        await alert.present();
+      },
+    });
+}
+
+
+  // 👇 Esta es la nueva función para ir a "Crear cuenta"
+
 }
