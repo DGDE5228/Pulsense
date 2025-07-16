@@ -34,33 +34,33 @@ export class LoginPage {
       return;
     }
 
-    this.http
-      .post<any>('https://pulsense.onrender.com/login', {
-        username: this.username,
-        password: this.password,
-      })
-      .subscribe({
-        next: async (res) => {
-          if (res.success) {
-            this.router.navigate(['/dashboard']);
-          } else {
-            const alert = await this.alertCtrl.create({
-              header: 'Error',
-              message: res.message || 'Credenciales incorrectas',
-              buttons: ['OK'],
-            });
-            await alert.present();
-          }
-        },
-        error: async (err) => {
-          const alert = await this.alertCtrl.create({
-            header: 'Error de conexión',
-            message: err.error?.message || 'Error al conectar con el servidor',
-            buttons: ['OK'],
-          });
-          await alert.present();
-        },
+   this.http
+  .post<any>('https://pulsense.onrender.com/login', {
+    username: this.username,
+    password: this.password,
+  })
+  .subscribe({
+    next: async (res) => {
+      if (res?.success) {
+        this.router.navigate(['/dashboard']);
+      } else {
+        const alert = await this.alertCtrl.create({
+          header: 'Error',
+          message: res?.message || 'Credenciales incorrectas o respuesta inesperada',
+          buttons: ['OK'],
+        });
+        await alert.present();
+      }
+    },
+    error: async (err) => {
+      const alert = await this.alertCtrl.create({
+        header: 'Error de conexión',
+        message: err.error?.message || 'Error al conectar con el servidor',
+        buttons: ['OK'],
       });
+      await alert.present();
+    },
+  });   
   }
 
   async register() {
@@ -81,7 +81,7 @@ export class LoginPage {
       })
       .subscribe({
         next: async (res) => {
-          if (res.success) {
+          if (res?.success) {
             const alert = await this.alertCtrl.create({
               header: 'Éxito',
               message: res.message || 'Cuenta creada correctamente',
