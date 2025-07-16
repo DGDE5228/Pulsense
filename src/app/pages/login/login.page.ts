@@ -35,7 +35,7 @@ export class LoginPage {
     }
 
     this.http
-      .post<any>('https://pulsense.onrender.com/login', {
+      .post<any>('https://localhost.com/login', {
         username: this.username,
         password: this.password,
       })
@@ -75,7 +75,7 @@ export class LoginPage {
     }
 
     this.http
-      .post<any>('https://pulsense.onrender.com/register', {
+      .post<any>('https://localhost.com/register', {
         username: this.username,
         password: this.password,
       })
