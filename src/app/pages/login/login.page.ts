@@ -49,6 +49,7 @@ export class LoginPage {
           message: res?.message || 'Credenciales incorrectas o respuesta inesperada',
           buttons: ['OK'],
         });
+        console.log(res)
         await alert.present();
       }
     },
