@@ -1,112 +1,100 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import {
+  IonContent,
+  IonInput,
+  IonButton,
+  IonItem,
+  IonLabel
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule],
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  standalone: true,
+  imports: [
+    FormsModule,
+    IonContent,
+    IonInput,
+    IonButton,
+    IonItem,
+    IonLabel
+  ]
 })
 export class LoginPage {
   username = '';
   password = '';
+  errorMessage = '';
+  successMessage = '';
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private alertCtrl: AlertController
-  ) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  async login() {
+  login() {
     if (!this.username || !this.password) {
-      const alert = await this.alertCtrl.create({
-        header: 'Campos vacíos',
-        message: 'Por favor ingresa usuario y contraseña.',
-        buttons: ['OK'],
-      });
-      await alert.present();
+      this.errorMessage = 'Debes llenar todos los campos';
+      this.successMessage = '';
       return;
     }
 
-   this.http
-  .post<any>('https://pulsense.onrender.com/login', {
-    username: this.username,
-    password: this.password,
-  })
-  .subscribe({
-    next: async (res) => {
-      if (res?.success) {
-        this.router.navigate(['/dashboard']);
-      } else {
-        const alert = await this.alertCtrl.create({
-          header: 'Error',
-          message: res?.message || 'Credenciales incorrectas o respuesta inesperada',
-          buttons: ['OK'],
-        });
-        console.log(res)
-        await alert.present();
+    this.http.post('https://pulsense.onrender.com/login', {
+      username: this.username,
+      password: this.password
+    }).subscribe({
+      next: (res: any) => {
+        if (res.success) {
+          (document.activeElement as HTMLElement)?.blur(); // 🧼 evita el error de accesibilidad
+          this.errorMessage = '';
+          this.successMessage = 'Inicio de sesión exitoso';
+
+          this.router.navigate(['/dashboard']); // redirección tras login
+        } else {
+          this.errorMessage = res.message || 'Usuario o contraseña inválidos';
+          this.successMessage = '';
+        }
+      },
+      error: (err) => {
+        console.error('❌ Error en login:', err);
+        this.errorMessage = err.error?.message || 'Error del servidor';
+        this.successMessage = '';
       }
-    },
-    error: async (err) => {
-      const alert = await this.alertCtrl.create({
-        header: 'Error de conexión',
-        message: err.error?.message || 'Error al conectar con el servidor',
-        buttons: ['OK'],
-      });
-      await alert.present();
-    },
-  });   
+    });
   }
 
-  async register() {
+  register() {
     if (!this.username || !this.password) {
-      const alert = await this.alertCtrl.create({
-        header: 'Campos vacíos',
-        message: 'Por favor ingresa usuario y contraseña.',
-        buttons: ['OK'],
-      });
-      await alert.present();
+      this.errorMessage = 'Debes llenar todos los campos para registrarte';
+      this.successMessage = '';
       return;
     }
 
-    this.http
-      .post<any>('https://pulsense.onrender.com/register', {
-        username: this.username,
-        password: this.password,
-      })
-      .subscribe({
-        next: async (res) => {
-          if (res?.success) {
-            const alert = await this.alertCtrl.create({
-              header: 'Éxito',
-              message: res.message || 'Cuenta creada correctamente',
-              buttons: ['OK'],
-            });
-            await alert.present();
-            this.router.navigate(['/login']); // o dashboard si prefieres
-          } else {
-            const alert = await this.alertCtrl.create({
-              header: 'Error',
-              message: res.message || 'No se pudo registrar',
-              buttons: ['OK'],
-            });
-            await alert.present();
-          }
-        },
-        error: async (err) => {
-          const alert = await this.alertCtrl.create({
-            header: 'Error del servidor',
-            message: err.error?.message || 'Error al registrar usuario',
-            buttons: ['OK'],
-          });
-          await alert.present();
-        },
-      });
+    this.http.post('https://pulsense.onrender.com/register', {
+      username: this.username,
+      password: this.password
+    }).subscribe({
+      next: (res: any) => {
+        if (res.success) {
+          (document.activeElement as HTMLElement)?.blur(); // evita el error de foco
+          this.errorMessage = '';
+          this.successMessage = 'Usuario registrado correctamente';
+
+          // Redirigir al login luego de breve mensaje
+          setTimeout(() => {
+            this.successMessage = '';
+            this.router.navigate(['/login']);
+          }, 1200);
+        } else {
+          this.errorMessage = res.message || 'Error al registrar';
+          this.successMessage = '';
+        }
+      },
+      error: (err) => {
+        console.error('❌ Error en registro:', err);
+        this.errorMessage = err.error?.message || 'Error del servidor';
+        this.successMessage = '';
+      }
+    });
   }
 }
