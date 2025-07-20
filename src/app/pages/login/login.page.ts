@@ -44,7 +44,8 @@ export class LoginPage {
       password: this.password
     }).subscribe({
       next: (res: any) => {
-        if (res.success) {
+        console.log('📦 Respuesta de login:', res);
+       if (res && res.success) {
           (document.activeElement as HTMLElement)?.blur(); // 🧼 evita el error de accesibilidad
           this.errorMessage = '';
           this.successMessage = 'Inicio de sesión exitoso';
