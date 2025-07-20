@@ -39,9 +39,9 @@ export class LoginPage {
       return;
     }
 
-    this.http.post('https://pulsense.onrender.com/login', {
-      username: this.username,
-      password: this.password
+    this.http.post('https://pulsenseback.onrender.com/login', {
+  username: this.username,
+  password: this.password
     }).subscribe({
       next: (res: any) => {
         console.log('📦 Respuesta de login:', res);
@@ -71,9 +71,9 @@ export class LoginPage {
       return;
     }
 
-    this.http.post('https://pulsense.onrender.com/register', {
-      username: this.username,
-      password: this.password
+    this.http.post('https://pulsenseback.onrender.com/register', {
+  username: this.username,
+  password: this.password
     }).subscribe({
       next: (res: any) => {
         if (res.success) {
