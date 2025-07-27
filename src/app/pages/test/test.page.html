@@ -1,0 +1,10 @@
+<div class="ip-box">
+  <strong>ESP32 IP:</strong> {{ espIp || 'Esperando conexión...' }}
+</div>
+
+<canvas
+  baseChart
+  [data]="lineChartData"
+  [options]="lineChartOptions"
+  [type]="lineChartType">
+</canvas>
