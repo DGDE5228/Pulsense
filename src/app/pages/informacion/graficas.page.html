@@ -1,0 +1,52 @@
+<ion-header class="navbar-container">
+  <div class="navbar">
+    <ul class="nav-links">
+       <li><a routerLink="/dashboard" routerLinkActive="active">Inicio</a></li>
+      <li><a routerLink="/test" routerLinkActive="active">Pulso</a></li>
+      <li><a routerLink="/iot" routerLinkActive="active">IOT</a></li>
+      <li><a routerLink="/graficas" routerLinkActive="active">Información</a></li>
+      <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
+    </ul>
+
+    <div class="auth-buttons">
+      <button class="btn-login">Login</button>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <!-- Bloque de información -->
+  <div class="info-container">
+    <h2>Detector de Niveles de Estrés en Tiempo Real</h2>
+
+    <h3>¿Qué es el estrés?</h3>
+    <p>
+      El estrés es una reacción natural del cuerpo ante situaciones que percibe como amenazantes o desafiantes.
+      Cuando una persona enfrenta presión académica, exámenes o responsabilidades personales, el cuerpo libera hormonas como el cortisol, aumentando la frecuencia cardíaca, la respiración y la tensión muscular.
+      Aunque el estrés ocasional puede ayudar a enfocarse, el estrés prolongado afecta negativamente la salud física, emocional y mental.
+    </p>
+
+    <h3>Descripción del Proyecto</h3>
+    <p>
+      Este proyecto busca detectar niveles de estrés en personas —especialmente estudiantes— mediante sensores biométricos
+      que capturan cambios fisiológicos. Es un sistema portátil, no invasivo, de bajo costo y fácil de usar, que monitorea el estado emocional del usuario en tiempo real.
+    </p>
+
+    <h3>¿Cómo funciona?</h3>
+    <ul>
+      <li>🧪 <strong>Sensores:</strong> Capturan señales del cuerpo como sudoración en la piel (GSR) y pulso cardíaco.</li>
+      <li>🧠 <strong>Procesamiento:</strong> El ESP32 interpreta los datos y detecta cambios asociados al estrés.</li>
+      <li>📱 <strong>Visualización:</strong> Los resultados se muestran en la app móvil o web de forma clara.</li>
+      <li>⚠️ <strong>Alertas:</strong> Si se detecta estrés elevado, el sistema notifica al usuario para tomar acción.</li>
+    </ul>
+
+    <!-- Botón hacia materiales usados -->
+    <div class="materiales-btn">
+      <ion-button class="btn-personalizado"  routerLink="/iot">
+        Materiales utilizados
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

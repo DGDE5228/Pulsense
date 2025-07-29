@@ -27,6 +27,11 @@
   backdrop-filter: blur(4px);
   border-radius: 0 0 12px 12px;
 }
+.nav-links a:hover,
+.nav-links a.active {
+  color: black;
+  text-shadow: 0 0 6px rgba(228, 207, 207, 0.4);
+}
 
 /* Contenedor principal con fondo general */
 ion-content {
@@ -40,7 +45,43 @@ ion-content {
 
 .info-container {
 
-  padding-top: 35px; // espacio para navbar
+  padding-top: 60px; // espacio para navbar
+}
+
+  h2 {
+
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: black;
+  }
+
+  h3 {
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: red;
+  }
+  p{
+        color: black;
+
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    color: black;
+
+    li {
+      margin-bottom: 0.8rem;
+          color: black;
+
+    }
+  }
+
+
+.materiales-btn {
+  margin-top: 1.5rem;
+  text-align: center;
 }
 /* Enlaces y botones */
 .nav-links {
@@ -87,6 +128,28 @@ ion-content {
 .btn-signup:hover {
   transform: scale(1.05);
 }
+.btn-personalizado {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #000;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 255, 198, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 255, 198, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: none;
+  }
+}
 
 /* Footer */
 .footer {
@@ -100,37 +163,3 @@ ion-content {
   /* ¡NO pongas margin-top: auto aquí! */
 
 }
-.nav-links a:hover,
-.nav-links a.active {
-  color: black;
-  text-shadow: 0 0 6px rgba(228, 207, 207, 0.4);
-}
-h2 {
-
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    color: black;
-  }
-
-  h3 {
-    margin-top: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    color: red;
-  }
-  p{
-        color: black;
-
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0;
-    color: black;
-
-    li {
-      margin-bottom: 0.8rem;
-          color: black;
-
-    }
-  }

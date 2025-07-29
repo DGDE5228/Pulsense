@@ -13,3 +13,150 @@ canvas {
   color: #00ffc6;
   font-family: monospace;
 }
+:host {
+  display: block;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: url('/assets/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  padding-top: 6rem;
+  box-sizing: border-box;
+}
+
+/* Contenedor general que oscurece el fondo */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  /* border-radius: 16px; */
+  padding: 2rem;
+}
+
+/* Títulos */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(0, 255, 198, 0.6);
+}
+
+/* Texto normal */
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #dbefff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor del componente de datos */
+.test-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  /* border-radius: 16px; */
+  padding: 1.5rem 2rem;
+  box-shadow:
+    0 0 20px rgba(0, 255, 198, 0.3),
+    0 0 8px rgba(0, 255, 198, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0, 255, 198, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.test-container:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 25px rgba(0, 255, 198, 0.5),
+    0 0 12px rgba(0, 255, 198, 0.3);
+}
+canvas {
+  width: 100% !important;
+  max-height: 300px;
+}
+
+/* Navbar */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(165, 164, 173, 0.5); /* translúcido AZUL! */
+  backdrop-filter: blur(6px);
+  padding: 0.5rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 80px; 
+  color: white;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  backdrop-filter: blur(4px);
+  border-radius: 0 0 12px 12px;
+
+}
+
+
+/* Centro: Enlaces */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: black;
+  text-shadow: 0 0 6px rgba(228, 207, 207, 0.4);
+}
+
+/* Derecha: Botones Login/Signup */
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-login {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-login:hover {
+  transform: scale(1.05);
+}
+
+.btn-signup {
+  background-color: black;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-signup:hover {
+  transform: scale(1.05);
+}
+

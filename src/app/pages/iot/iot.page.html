@@ -1,13 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>iot</ion-title>
-  </ion-toolbar>
+<ion-header class="navbar-container">
+  <div class="navbar">
+    <ul class="nav-links">
+       <li><a routerLink="/dashboard" routerLinkActive="active">Inicio</a></li>
+      <li><a routerLink="/test" routerLinkActive="active">Pulso</a></li>
+      <li><a routerLink="/iot" routerLinkActive="active">IOT</a></li>
+      <li><a routerLink="/graficas" routerLinkActive="active">Información</a></li>
+      <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
+    </ul>
+
+    <div class="auth-buttons">
+      <button class="btn-login">Login</button>
+    
+    </div>
+  </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">iot</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" > 
+<div class="info-container">
+
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col size="12">
+        <h2>Materiales utilizados</h2>
+        <ul>
+          <li>📟 <strong>ESP32:</strong> Microcontrolador principal con conexión Wi-Fi y Bluetooth.</li>
+          <li>💓 <strong>Sensor de pulso cardíaco (KY-039 / Pulse Sensor):</strong> Detecta los latidos del corazón.</li>
+          <li>💧 <strong>Sensor GSR:</strong> Mide la conductividad eléctrica de la piel, que varía con la sudoración.</li>
+          <li>🔌 <strong>Protoboard y cables de conexión:</strong> Para armar y probar el circuito.</li>
+          <li>🔋 <strong>Batería recargable o alimentación por USB:</strong> Para dar energía al sistema.</li>
+          <li>🧑‍💻 <strong>Software personalizado:</strong> Lectura, procesamiento y visualización de los datos.</li>
+        </ul>
+
+        <h2>Características principales</h2>
+        <ul>
+          <li>🚨 Detección automática de estrés en tiempo real</li>
+          <li>📲 Compatible con app móvil y plataforma web</li>
+          <li>🔍 Registro histórico de datos</li>
+          <li>👤 Enfoque en bienestar estudiantil y prevención</li>
+          <li>🌐 Tecnología IoT para acceso desde cualquier lugar</li>
+        </ul>
+
+        <h2>Beneficios</h2>
+        <ul>
+          <li>💡 Mejora la conciencia emocional y el autocuidado.</li>
+          <li>🛡️ Ayuda a prevenir problemas de salud relacionados con el estrés.</li>
+          <li>📊 Proporciona datos útiles para tomar decisiones saludables.</li>
+          <li>🏫 Promueve entornos académicos más saludables.</li>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
 </ion-content>
+
