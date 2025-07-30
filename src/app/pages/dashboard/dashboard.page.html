@@ -9,7 +9,6 @@
     </ul>
 
     <div class="auth-buttons">
-      <button *ngIf="!estaAutenticado" class="btn-login" (click)="manejarLogin()">Login</button>
       <button *ngIf="estaAutenticado" class="btn-logout" (click)="cerrarSesion()">Logout</button>
     </div>
   </div>
