@@ -7,7 +7,8 @@ import {
   IonInput,
   IonButton,
   IonItem,
-  IonLabel
+  IonLabel,
+  AlertController
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -30,7 +31,11 @@ export class LoginPage {
   errorMessage = '';
   successMessage = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private alertController: AlertController
+  ) {}
 
   login() {
     if (!this.username || !this.password) {
@@ -40,17 +45,16 @@ export class LoginPage {
     }
 
     this.http.post('https://pulsenseback.onrender.com/login', {
-  username: this.username,
-  password: this.password
+      username: this.username,
+      password: this.password
     }).subscribe({
       next: (res: any) => {
         console.log('📦 Respuesta de login:', res);
-       if (res && res.success) {
-          (document.activeElement as HTMLElement)?.blur(); // 🧼 evita el error de accesibilidad
+        if (res && res.success) {
+          (document.activeElement as HTMLElement)?.blur();
           this.errorMessage = '';
           this.successMessage = 'Inicio de sesión exitoso';
-
-          this.router.navigate(['/dashboard']); // redirección tras login
+          this.router.navigate(['/dashboard']);
         } else {
           this.errorMessage = res.message || 'Usuario o contraseña inválidos';
           this.successMessage = '';
@@ -72,20 +76,29 @@ export class LoginPage {
     }
 
     this.http.post('https://pulsenseback.onrender.com/register', {
-  username: this.username,
-  password: this.password
+      username: this.username,
+      password: this.password
     }).subscribe({
-      next: (res: any) => {
+      next: async (res: any) => {
         if (res.success) {
-          (document.activeElement as HTMLElement)?.blur(); // evita el error de foco
+          (document.activeElement as HTMLElement)?.blur();
           this.errorMessage = '';
           this.successMessage = 'Usuario registrado correctamente';
 
-          // Redirigir al login luego de breve mensaje
+          // Alerta modal que se cierra sola tras 2.5s
+          const alert = await this.alertController.create({
+            header: 'Registro exitoso',
+            message: 'Tu usuario ha sido creado correctamente.',
+            buttons: [],
+          });
+          await alert.present();
+          setTimeout(() => alert.dismiss(), 2500);
+
+          // Redirige tras un breve delay
           setTimeout(() => {
             this.successMessage = '';
             this.router.navigate(['/login']);
-          }, 1200);
+          }, 2800);
         } else {
           this.errorMessage = res.message || 'Error al registrar';
           this.successMessage = '';
