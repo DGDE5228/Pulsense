@@ -9,16 +9,10 @@ export class WebsocketService {
   private subject = new Subject<any>();
 
   constructor() {
-    const isLocal = location.hostname === 'localhost' || location.hostname.startsWith('192.168.');
-  
-    const socketUrl = isLocal
-      ? 'ws://192.168.1.66:81'
-      : 'wss://pulsenseback.onrender.com';
-
-    this.socket = new WebSocket(socketUrl);
+    this.socket = new WebSocket('ws://192.168.120.141:81'); // Cambia IP si se actualiza
 
     this.socket.onopen = () => {
-      console.log(`✅ WebSocket conectado a ${socketUrl}`);
+      console.log('✅ WebSocket conectado al ESP32');
     };
 
     this.socket.onerror = (error) => {
@@ -35,7 +29,6 @@ export class WebsocketService {
     };
   }
 
-  // ✅ Este método es necesario
   getMessages(): Observable<any> {
     return this.subject.asObservable();
   }
