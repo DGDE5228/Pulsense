@@ -49,12 +49,13 @@ ion-item {
   border: none;
 }
 
-ion-input {
-  --background: #ffffff;
-  --color: #000000;
-  padding: 8px;
-  border-radius: 8px;
+ion-item.input-item {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0; // elimina relleno lateral
 }
+
 
 ion-button {
   width: 100%;
@@ -94,5 +95,23 @@ color: #000000;
 
   &::part(native) {
     border: 2px solid white !important;
+  }
+}
+ion-input::part(native) {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  ion-input::part(native) {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  ion-item.input-item {
+    margin-inline: 0;
+    padding-inline: 0;
   }
 }
