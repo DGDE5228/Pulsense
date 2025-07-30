@@ -159,7 +159,18 @@ canvas {
 .btn-signup:hover {
   transform: scale(1.05);
 }
-
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #ccc;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 8px;
+  /* ¡NO pongas margin-top: auto aquí! */
+margin-top: 25px;
+}
 
 /* Responsividad para pantallas mayores a 768px */
 @media (max-width: 768px) {

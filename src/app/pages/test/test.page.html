@@ -1,4 +1,4 @@
-<header class="navbar-container">
+<ion-header class="navbar-container">
   <div class="navbar">
     <ul class="nav-links">
        <li><a routerLink="/dashboard" routerLinkActive="active">Inicio</a></li>
@@ -13,8 +13,8 @@
       
     </div>
   </div>
-</header>
-
+</ion-header>
+<ion-content>
 <div class="ip-box">
   <strong>ESP32 IP:</strong> {{ espIp || 'Esperando conexión...' }}
 </div>
@@ -25,3 +25,7 @@
   [options]="lineChartOptions"
   [type]="lineChartType">
 </canvas>
+<div class="footer">
+    <p>© 2024 Pulsense. Todos los derechos reservados.</p>
+  </div>
+</ion-content>

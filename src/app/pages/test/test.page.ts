@@ -4,13 +4,14 @@ import { NgChartsModule } from 'ng2-charts';
 import { ChartConfiguration } from 'chart.js';
 import { WebsocketService } from '../../services/websocket.service';
 import { RouterModule, RouterLink, RouterLinkActive } from '@angular/router';
+import { IonContent, IonHeader } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-test',
   standalone: true,
   imports: [CommonModule, NgChartsModule, RouterModule,
     RouterLink,
-    RouterLinkActive],
+    RouterLinkActive, IonContent, IonHeader],
   templateUrl: './test.page.html',
   styleUrls: ['./test.page.scss'],
 })
