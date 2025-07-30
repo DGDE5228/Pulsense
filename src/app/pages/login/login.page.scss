@@ -89,6 +89,22 @@ ion-item {
   border: none;
 }
 
+ion-input::part(native) {
+  font-size: 14px;          // 👈 Tamaño de texto más compacto
+  padding: 6px 10px;        // 👈 Menos espacio interno
+  border-radius: 6px;       // 👈 Bordes ligeramente más pequeños
+  width: 100%;
+}
+
+ion-item.input-item {
+  --min-height: 42px;       // 👈 Menor altura visual del contenedor
+  font-size: 16px;
+  --inner-padding-start: 10px;
+  --inner-padding-end: 10px;
+  --inner-padding-top: 6px;
+  --inner-padding-bottom: 6px;
+  margin-bottom: 0.75rem;   // 👈 Menos separación entre campos
+}
 
 
 
@@ -151,7 +167,12 @@ ion-input::part(native) {
   }
 
   ion-input::part(native) {
-    width: 100%;
-    box-sizing: border-box;
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  ion-item.input-item {
+    --min-height: 38px;
+    margin-bottom: 0.5rem;
   }
 }
