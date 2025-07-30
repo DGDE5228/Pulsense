@@ -40,7 +40,7 @@ export class LoginPage {
     }
 
     this.http.post('https://pulsenseback.onrender.com/login', {
-  correo: this.username,
+  username: this.username,
   password: this.password
     }).subscribe({
       next: (res: any) => {
@@ -72,7 +72,7 @@ export class LoginPage {
     }
 
     this.http.post('https://pulsenseback.onrender.com/register', {
-  correo: this.username,
+  username: this.username,
   password: this.password
     }).subscribe({
       next: (res: any) => {
