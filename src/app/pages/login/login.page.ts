@@ -88,7 +88,7 @@ export class LoginPage {
           // Alerta modal que se cierra sola tras 2.5s
           const alert = await this.alertController.create({
             header: 'Registro exitoso',
-            message: 'Tu usuario ha sido creado correctamente.',
+            message: 'Tu usuario ha sido creado correctamente. Puedes iniciar sesion ahora',
             buttons: [],
           });
           await alert.present();
