@@ -9,27 +9,30 @@ export class WebsocketService {
   private subject = new Subject<any>();
 
   constructor() {
-    this.socket = new WebSocket('ws://192.168.1.66:81'); // Cambia IP si se actualiza
+  const isLocal = location.hostname === 'localhost' || location.hostname.startsWith('192.168.');
+  
+  const socketUrl = isLocal
+    ? 'ws://192.168.1.66:81' // 👈 tu ESP32 local
+    : 'wss://pulsenseback.onrender.com'; // 👈 tu backend en Render que maneja WebSockets
 
-    this.socket.onopen = () => {
-      console.log('✅ WebSocket conectado al ESP32');
-    };
+  this.socket = new WebSocket(socketUrl);
 
-    this.socket.onerror = (error) => {
-      console.error('❌ Error en WebSocket', error);
-    };
+  this.socket.onopen = () => {
+    console.log(`✅ WebSocket conectado a ${socketUrl}`);
+  };
 
-    this.socket.onmessage = (msg) => {
-      try {
-        const data = JSON.parse(msg.data);
-        this.subject.next(data);
-      } catch (e) {
-        console.error('⚠️ No se pudo parsear el mensaje', msg.data);
-      }
-    };
-  }
+  this.socket.onerror = (error) => {
+    console.error('❌ Error en WebSocket', error);
+  };
 
-  getMessages(): Observable<any> {
-    return this.subject.asObservable();
-  }
+  this.socket.onmessage = (msg) => {
+    try {
+      const data = JSON.parse(msg.data);
+      this.subject.next(data);
+    } catch (e) {
+      console.error('⚠️ No se pudo parsear el mensaje', msg.data);
+    }
+  };
+}
+
 }
