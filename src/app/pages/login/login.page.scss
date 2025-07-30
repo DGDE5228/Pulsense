@@ -1,44 +1,98 @@
-// Centra el formulario tanto en web como en móvil
-.centro-login {
+.login-content {
+  --background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.login-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   padding: 16px;
 }
 
-.form-login {
-  width: 100%;
-  max-width: 400px;
-  padding: 24px;
+.login-card {
   background-color: #1797A6;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
 }
 
-// Estilo para los inputs
-.input-item {
-  --background: white;
-  --color: black;
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+ion-item {
+  --background: transparent;
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  --color: #ffffff;
+  border: none;
+}
+
+ion-input {
+  --background: #ffffff;
+  --color: #000000;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+ion-button {
+  width: 100%;
+  font-size: 18px;
+  --padding-start: 16px;
+  --padding-end: 16px;
   --border-radius: 8px;
-  margin-bottom: 16px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-ion-input::part(native) {
-  color: black;
-  padding: 12px 8px;
+ion-button {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 18px;
+color: #000000;
+  &::part(native) {
+    width: 100% !important;
+    display: block;
+  }
 }
 
-// Botón de inicio de sesión
 .login-button {
-  --background: #3B82F6; /* Azul moderno */
-  --color: white;
-  --border-radius: 8px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  --background: #007bff;
+  --color: #ffffff;
+  --border-radius: 10px;
+  margin-top: 16px;
 }
 
-.register-button{
-  color: aliceblue;
-  background-color: #3B82F6;
+.register-button {
+  --background: transparent;
+  --color: #ffffff;
+  --border-radius: 10px;
+  --border: 2px solid #ffffff;
+  margin-top: 8px;
+
+  &::part(native) {
+    border: 2px solid white !important;
+  }
 }

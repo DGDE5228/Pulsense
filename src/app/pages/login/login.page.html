@@ -1,6 +1,9 @@
-<ion-content class="ion-no-padding" style="--background: #D9D9D9;">
-  <div class="centro-login">
-    <form class="form-login" (ngSubmit)="login()"  novalidate>
+<ion-content class="login-content">
+  <div class="login-wrapper">
+    <form class="login-card" (ngSubmit)="login()" novalidate>
+      <h2 class="login-title">Bienvenido</h2>
+      <p class="login-subtitle">Inicia sesión</p>
+
       <ion-item class="input-item">
         <ion-label position="floating">Usuario</ion-label>
         <ion-input [(ngModel)]="username" name="username" required></ion-input>
@@ -11,14 +14,13 @@
         <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
       </ion-item>
 
-      <ion-button expand="blocak" type="submit" class="login-button">
-        INICIAR SESIÓN
+      <ion-button expand="block" class="login-button" type="submit">
+        Iniciar Sesión
       </ion-button>
-    <ion-button expand="block" fill="clear" class="register-button" (click)="register()">
-  Crear cuenta
-</ion-button>
 
-
+      <ion-button expand="block" fill="clear" class="register-button" (click)="register()">
+        Crear Cuenta
+      </ion-button>
     </form>
   </div>
 </ion-content>

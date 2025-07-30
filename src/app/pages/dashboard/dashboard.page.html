@@ -1,5 +1,4 @@
 <ion-content fullscreen>
-  <!-- Barra de navegación fija -->
   <div class="navbar">
     <ul class="nav-links">
       <li><a routerLink="/dashboard" routerLinkActive="active">Inicio</a></li>
@@ -8,22 +7,20 @@
       <li><a routerLink="/graficas" routerLinkActive="active">Información</a></li>
       <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
     </ul>
+
     <div class="auth-buttons">
-      <button class="btn-login"  routerLink="/login">Login</button>
-      
+      <button *ngIf="!estaAutenticado" class="btn-login" (click)="manejarLogin()">Login</button>
+      <button *ngIf="estaAutenticado" class="btn-logout" (click)="cerrarSesion()">Logout</button>
     </div>
   </div>
 
-  <!-- Contenedor general con fondo.png -->
   <div class="inicio-container">
-    <!-- Capa central con fondo health.jpg -->
     <div class="titulo-section">
       <h1 class="titulo">Pulsense</h1>
       <p class="subtitulo">Monitoreo inteligente de señales biométricas</p>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     <p>© 2024 Pulsense. Todos los derechos reservados.</p>
   </div>

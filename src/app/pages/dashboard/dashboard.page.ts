@@ -1,13 +1,33 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { AlertController, IonContent } from '@ionic/angular/standalone';
+import { AuthService } from '../../services/auth.service';
 import { RouterModule } from '@angular/router';
-
-import { IonContent, IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule, IonContent, IonHeader, IonToolbar, IonTitle],
+  imports: [CommonModule, IonContent, RouterModule],
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss']
 })
-export class DashboardPage {}
+export class DashboardPage {
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    public AuthService: AuthService
+  ) {}
+
+  get estaAutenticado(): boolean {
+    return this.AuthService.estaAutenticado();
+  }
+
+  manejarLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  cerrarSesion() {
+    this.AuthService.cerrarSesion(); // ← tu método en AuthService para limpiar sesión
+    this.router.navigate(['/login']);
+  }
+}
