@@ -2,18 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 100vh; // 👈 Asegura altura de pantalla completa
+  padding: 1rem;      // 👈 Evita desborde lateral en móviles
   background: linear-gradient(135deg, #e0f7fa, #ffffff);
 }
 
+
 .login-wrapper {
-  width: 90%;
+  width: 100%;
   max-width: 400px;
-  background-color: #0097a7;
+  margin: 0 auto;
   padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
+
 
 .login-title {
   text-align: center;
@@ -138,13 +140,18 @@ ion-input::part(native) {
 }
 
 @media screen and (max-width: 480px) {
-  ion-input::part(native) {
-    font-size: 15px;
-    padding: 8px;
+  .login-wrapper {
+    padding: 1.5rem;
   }
 
   ion-item.input-item {
+    width: 100%;
     margin-inline: 0;
     padding-inline: 0;
+  }
+
+  ion-input::part(native) {
+    width: 100%;
+    box-sizing: border-box;
   }
 }
