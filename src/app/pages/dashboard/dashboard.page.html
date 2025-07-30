@@ -1,17 +1,22 @@
-<ion-content fullscreen>
+<ion-header [translucent]="true">
   <div class="navbar">
     <ul class="nav-links">
       <li><a routerLink="/dashboard" routerLinkActive="active">Inicio</a></li>
       <li><a routerLink="/test" routerLinkActive="active">Pulso</a></li>
       <li><a routerLink="/iot" routerLinkActive="active">IOT</a></li>
+
+      <!-- Botón agregado como parte del menú -->
+      <li class="logout-li">
+        <button class="btn-login" routerLink="/login">Logout</button>
+      </li>
+
       <li><a routerLink="/graficas" routerLinkActive="active">Información</a></li>
       <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
     </ul>
- <div class="auth-buttons">
-      <button class="btn-login"  routerLink="/login">Logout</button>
-      
-    </div>
   </div>
+</ion-header>
+
+<ion-content fullscreen>
 
   <div class="inicio-container">
     <div class="titulo-section">
