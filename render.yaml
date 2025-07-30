@@ -1,4 +1,0 @@
-routes:
-  - type: rewrite
-    source: /testrewrite
-    destination: /index.html
