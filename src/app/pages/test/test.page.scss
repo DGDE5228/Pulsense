@@ -160,3 +160,68 @@ canvas {
   transform: scale(1.05);
 }
 
+
+/* Responsividad para pantallas mayores a 768px */
+@media (max-width: 768px) {
+  .titulo-section {
+    padding: 4rem;
+    margin-bottom: 12rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .titulo {
+    font-size: 3.5rem;
+  }
+
+  .subtitulo {
+    font-size: 1.4rem;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .nav-links {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .auth-buttons button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+    }
+  }
+
+  .inicio-container {
+    padding: 8rem 2rem 2rem;
+  }
+  .footer{
+    margin-top: 6rem;
+  }
+}
+
+/* Pantallas muy grandes */
+@media (max-width: 1024px) {
+  .titulo-section {
+    padding: 5rem;
+    max-width: 900px;
+  }
+
+  .titulo {
+    font-size: 4rem;
+  }
+
+  .subtitulo {
+    font-size: 1.6rem;
+  }
+
+  .btn-login,
+  .btn-signup {
+    font-size: 1rem;
+  }
+   .footer{
+    margin-top: 7rem;
+  }
+}
