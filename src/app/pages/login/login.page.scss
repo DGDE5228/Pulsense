@@ -1,18 +1,56 @@
 .login-content {
-  --background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
 }
 
 .login-wrapper {
+  width: 90%;
+  max-width: 400px;
+  background-color: #0097a7;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.login-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #e0f7fa;
+}
+
+.input-item {
+  --background: white;
+  --padding-start: 12px;
+  --highlight-color-focused: #006064;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+ion-input {
+  --padding-start: 12px;
+  --color: black;
+}
+
+ion-button {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 16px;
+  margin-top: 1rem;
+  --background: #00796b;
+  --border-radius: 8px;
+}
+
+ion-button:last-of-type {
+  --background: #004d40;
 }
 
 .login-card {
@@ -49,12 +87,7 @@ ion-item {
   border: none;
 }
 
-ion-item.input-item {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0; // elimina relleno lateral
-}
+
 
 
 ion-button {
